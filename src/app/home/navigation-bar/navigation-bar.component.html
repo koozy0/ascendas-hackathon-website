@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <a class="mat-button" mat-button>
+    <mat-icon class="mat-button-wrapper">home</mat-icon>
+    <app-ripple [button]="title"></app-ripple>
+  </a>
+  <a class="mat-button" mat-button>
+    <app-ripple [button]="'Demo'"></app-ripple>
+  </a>
+  <a class="mat-button" mat-button>
+    <app-ripple [button]="'Demo'"></app-ripple>
+  </a>
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item>Headcount</button>
+  <button mat-menu-item>Demo</button>
+</mat-menu>

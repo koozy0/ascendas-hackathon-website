@@ -1,0 +1,57 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'custom-theme.scss';
+
+.custom-theme {
+  @include angular-material-theme($custom-theme);
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.fill-height {
+  flex: 1;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-col {
+  flex-direction: column;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+agm-map {
+  height: 100%;
+}
+
+div.agm-info-window-content {
+  color: black;
+}
