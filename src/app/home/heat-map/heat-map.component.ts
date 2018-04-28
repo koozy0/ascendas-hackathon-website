@@ -20,20 +20,17 @@ export class HeatMapComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const current = {
-      place: 'CoSpace Park',
-      lat: this.lat,
-      lng: this.lng,
-      count: 1,
-      timestamp: new Date()
-    };
-
-    this.cameras.push(current);
+    this.getCameras();
+    this.getCamerasEveryInterval(5000);
   }
 
-  getCameras() {
+  getCamerasEveryInterval(interval) {
+    setInterval(this.getCameras.bind(this), interval);
+  }
+
+  private getCameras() {
     this.cameraData.get()
-      .subscribe(cameras => console.log(cameras));
+      .subscribe(cameras => this.cameras = cameras);
   }
 
 }

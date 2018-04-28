@@ -10,11 +10,11 @@ export class CameraDataService {
   constructor(
     private http: HttpClient
   ) {
-    this.url = 'localhost:3000/cameras';
+    this.url = 'http://localhost:3000';
   }
 
-  get(): Observable<Camera> {
-    return this.http.get<Camera>(this.url);
+  get(): Observable<Camera[]> {
+    return this.http.get<Camera[]>(this.url);
   }
 
 }

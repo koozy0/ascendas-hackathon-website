@@ -1,13 +1,26 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <ng-container *ngFor="let camera of cameras">
-    <agm-marker [latitude]="camera.lat" [longitude]="camera.lng">
-      <agm-info-window [isOpen]="true">
-        Place: {{camera.place}}
-        <br>
-        Count: {{camera.count}}
-        <br>
-        Timestamp: {{camera.timestamp}}
-      </agm-info-window>
-    </agm-marker>
+  <ng-container *ngIf="cameras.length > 0">
+    <ng-container *ngFor="let camera of cameras">
+      <agm-marker [latitude]="camera.lat" [longitude]="camera.lng">
+        <agm-info-window [isOpen]="true">
+          <div>
+            <mat-icon
+              [style.color]="camera.count <= 3 ? 'green' : null"
+              [style.font-size.rem]="camera.count"
+              *ngIf="camera.count <= 3">person
+            </mat-icon>
+            <mat-icon
+              [style.color]="camera.count > 3 && camera.count <= 7 ? 'orange' : 'red' "
+              [style.font-size.rem]="camera.count"
+              *ngIf="camera.count > 3">group
+            </mat-icon>
+          </div>
+          <br>
+          Count: {{camera.count}}
+          <br>
+          Timestamp: {{camera.timestamp}}
+        </agm-info-window>
+      </agm-marker>
+    </ng-container>
   </ng-container>
 </agm-map>
