@@ -3,10 +3,10 @@
     <mat-icon class="mat-button-wrapper">home</mat-icon>
     <app-ripple [button]="title"></app-ripple>
   </a>
-  <a class="mat-button" mat-button>
-    <app-ripple [button]="'Demo'"></app-ripple>
+  <a class="mat-button" mat-button (click)="changeView('live')">
+    <app-ripple [button]="'Live'"></app-ripple>
   </a>
-  <a class="mat-button" mat-button>
+  <a class="mat-button" mat-button (click)="changeView('demo')">
     <app-ripple [button]="'Demo'"></app-ripple>
   </a>
   <button mat-icon-button [mat-menu-trigger-for]="menu">

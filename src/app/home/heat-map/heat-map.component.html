@@ -3,7 +3,7 @@
     <ng-container *ngFor="let camera of cameras">
       <agm-marker [latitude]="camera.lat" [longitude]="camera.lng">
         <agm-info-window [isOpen]="true">
-          <div>
+          <div [style.width.rem]="camera.count * 1.1">
             <mat-icon
               [style.color]="camera.count <= 3 ? 'green' : null"
               [style.font-size.rem]="camera.count"
@@ -17,8 +17,6 @@
           </div>
           <br>
           Count: {{camera.count}}
-          <br>
-          Timestamp: {{camera.timestamp}}
         </agm-info-window>
       </agm-marker>
     </ng-container>

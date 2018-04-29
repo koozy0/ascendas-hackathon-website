@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Camera } from '../../camera';
 // Importing Service
 import { CameraDataService } from '../../services/camera-data.service';
+import { NavHeatMapService } from '../../services/nav-heat-map.service';
 
 @Component({
   selector: 'app-heat-map',
@@ -14,12 +15,15 @@ export class HeatMapComponent implements OnInit {
   lng = 103.783088;
   zoom = 18;
   cameras: Camera[] = [];
+  view: string;
 
   constructor(
-    private cameraData: CameraDataService
+    private cameraData: CameraDataService,
+    private navHeatMapService: NavHeatMapService,
   ) { }
 
   ngOnInit() {
+    this.navHeatMapService.currentView.subscribe(view => this.view = view);
     this.getCameras();
     this.getCamerasEveryInterval(5000);
   }
@@ -29,7 +33,7 @@ export class HeatMapComponent implements OnInit {
   }
 
   private getCameras() {
-    this.cameraData.get()
+    this.cameraData.get(this.view)
       .subscribe(cameras => this.cameras = cameras);
   }
 

@@ -11,6 +11,7 @@ import { RippleComponent } from './ripple/ripple.component';
 import { AgmCoreModule } from '@agm/core';
 // Importing Service
 import { CameraDataService } from '../services/camera-data.service';
+import { NavHeatMapService } from '../services/nav-heat-map.service';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { CameraDataService } from '../services/camera-data.service';
     RippleComponent,
   ],
   providers: [
-    CameraDataService
+    CameraDataService,
+    NavHeatMapService,
   ]
 })
 export class HomeModule { }

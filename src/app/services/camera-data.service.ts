@@ -13,8 +13,9 @@ export class CameraDataService {
     this.url = 'http://localhost:3000';
   }
 
-  get(): Observable<Camera[]> {
-    return this.http.get<Camera[]>(this.url);
+  get(view): Observable<Camera[]> {
+    const url = `${this.url}/${view}`;
+    return this.http.get<Camera[]>(url);
   }
 
 }
