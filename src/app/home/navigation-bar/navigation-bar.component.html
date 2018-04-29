@@ -5,9 +5,11 @@
   </a>
   <a class="mat-button" mat-button (click)="changeView('live')">
     <app-ripple [button]="'Live'"></app-ripple>
+    <mat-icon class="mat-button-wrapper" *ngIf="view === 'live'">done</mat-icon>
   </a>
   <a class="mat-button" mat-button (click)="changeView('demo')">
     <app-ripple [button]="'Demo'"></app-ripple>
+    <mat-icon class="mat-button-wrapper" *ngIf="view === 'demo'">done</mat-icon>
   </a>
   <button mat-icon-button [mat-menu-trigger-for]="menu">
     <mat-icon>more_vert</mat-icon>

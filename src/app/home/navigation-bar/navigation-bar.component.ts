@@ -13,10 +13,7 @@ export class NavigationBarComponent implements OnInit {
   constructor(private navHeatMapService: NavHeatMapService) { }
 
   ngOnInit() {
-    this.navHeatMapService.currentView.subscribe(view => {
-      this.view = view;
-      console.log('view changed', this.view);
-    });
+    this.navHeatMapService.currentView.subscribe(view => this.view = view);
   }
 
   changeView(view: string) {
